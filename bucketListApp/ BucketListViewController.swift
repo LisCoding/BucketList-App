@@ -45,7 +45,7 @@ class BucketListViewController: UITableViewController , AddItemTableViewControll
     
     //click and edit olny when we click the action
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        performSegue(withIdentifier: "edit", sender: indexPath)
+        performSegue(withIdentifier: "addNewItem", sender: indexPath)
     }
     
     //remove item from the list
@@ -60,15 +60,10 @@ class BucketListViewController: UITableViewController , AddItemTableViewControll
     //Prepare for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
-        if segue.identifier == "addNewItem" {
-            //view where want to go (UINAvigationController -> is the view)
-            let navigationController = segue.destination as! UINavigationController
-            // now create another variable to set the to view the class has to match the class of other view
-            let addItemTableViewController = navigationController.topViewController as! AddItemTableViewController
-            addItemTableViewController.delegate = self
-            
-            
-        } else if segue.identifier == "edit"  {
+        let edit = sender as? NSIndexPath
+        
+        if edit != nil {
+            print("this is edit")
             //view where want to go (UINAvigationController -> is the view)
             let navigationController = segue.destination as! UINavigationController
             // now create another variable to set the to view the class has to match the class of other view
@@ -79,7 +74,38 @@ class BucketListViewController: UITableViewController , AddItemTableViewControll
             let item = items[indexPath.row]
             addItemTableViewController.item = item
             addItemTableViewController.indexPath = indexPath
+       
+        } else {
+            // add new item
+            //view where want to go (UINAvigationController -> is the view)
+            let navigationController = segue.destination as! UINavigationController
+            // now create another variable to set the to view the class has to match the class of other view)")
+            let addItemTableViewController = navigationController.topViewController as! AddItemTableViewController
+            addItemTableViewController.delegate = self
         }
+        
+//        if segue.identifier == "addNewItem" {
+//            //view where want to go (UINAvigationController -> is the view)
+//            let navigationController = segue.destination as! UINavigationController
+//            // now create another variable to set the to view the class has to match the class of other view)")
+//            let addItemTableViewController = navigationController.topViewController as! AddItemTableViewController
+//            addItemTableViewController.delegate = self
+//            
+//            
+//        } else if segue.identifier == "edit"  {
+//            //view where want to go (UINAvigationController -> is the view)
+//            let navigationController = segue.destination as! UINavigationController
+//            // now create another variable to set the to view the class has to match the class of other view
+//            let addItemTableViewController = navigationController.topViewController as! AddItemTableViewController
+//            addItemTableViewController.delegate = self
+//            
+//            let indexPath = sender as! NSIndexPath
+//            let item = items[indexPath.row]
+//            addItemTableViewController.item = item
+//            addItemTableViewController.indexPath = indexPath
+//            
+//            print("I am the sender from add \(sender)")
+//        }
     }
     
     func cancelButtonPressed(by controller: AddItemTableViewController) {

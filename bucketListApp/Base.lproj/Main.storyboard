@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eP2-OO-vEh" id="ty2-FA-6hU">
-                                    <rect key="frame" x="0.0" y="0.0" width="308" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="308" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -41,9 +41,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <segue destination="Rim-AS-fDo" kind="presentation" identifier="edit" id="xpy-hu-1Mm"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yCj-hd-Sk0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -149,7 +146,4 @@
             <point key="canvasLocation" x="2178" y="-343"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="xpy-hu-1Mm"/>
-    </inferredMetricsTieBreakers>
 </document>
